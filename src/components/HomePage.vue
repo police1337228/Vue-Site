@@ -1480,7 +1480,92 @@
     </div>
   </div>
   <footer>
-    <div class="container"></div>
+    <div class="container">
+      <div class="col-12">
+        <div class="row footer-container">
+          <div class="col-md-6 col-xs-12">
+            <div class="row">
+              <div class="footer-block">
+                <div class="footer-header">
+                  Оставить заявку на <br />
+                  поддержку сайта
+                </div>
+                <div class="footer-desc">
+                  Срочно нужна поддержка сайта? Ваша команда не успевает<br />
+                  справиться самостоятельно или предыдущий подрядчик не<br />
+                  справился с работой? Тогда вам точно к нам! Просто оставьте<br />
+                  заявку и наш менеджер с вами свяжется!
+                </div>
+                <div class="footer-contacts">
+                  <div class="footer-tel">
+                    <a href="#">8 800 222-26-73</a>
+                  </div>
+                  <div class="footer-mail">
+                    <a href="#">info@drupal-coder.ru</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <div class="form-wrapper">
+              <form class="footer-form" action="/" method="POST">
+                <div class="mb-1">
+                  <input
+                    type="name"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Ваше имя"
+                  />
+                </div>
+                <div class="mb-1">
+                  <input
+                    type="phone"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="Телефон"
+                  />
+                </div>
+                <div class="mb-1">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="E-mail"
+                  />
+                </div>
+                <div class="mb-1">
+                  <textarea
+                    type="phone"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="Ваш комментарий"
+                  ></textarea>
+                </div>
+                <div class="mb-2 form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="exampleCheck1"
+                  />
+                  <label class="form-check-label" for="exampleCheck1"
+                    >Отправляя заявку, я даю согласие на
+                    <a href="#"
+                      >обработку своих персональных<br />
+                      данных</a
+                    >.<span>*</span></label
+                  >
+                </div>
+                <button type="submit" class="btn btn-submit btn-lg">
+                  Свяжитесь с нами
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
 </template>
 <script>
@@ -1538,7 +1623,10 @@ export default {
     $(".workers-carousel.first").slick(this.workersSettings);
     $(".workers-carousel.second").slick(this.workersSettings);
     $(".accordion-item ").on("click", e => {
-      if (e.target.closest(".accordion-item").classList.contains("opened")) {
+      if (
+        e.target.closest(".accordion-item").classList.contains("opened") &&
+        !e.target.classList.contains("accordion-body")
+      ) {
         e.target.closest(".accordion-item").classList.toggle("opened");
       } else {
         $(".accordion-item.opened").removeClass("opened");
