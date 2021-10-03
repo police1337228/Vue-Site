@@ -1,6 +1,6 @@
 <template>
-  <header>
-    <div class="container">
+  <header class="mob-nav">
+    <div class="container header">
       <div class="header-logo">
         <img src="@/assets/img/drupal-coder.svg" />
       </div>
@@ -10,14 +10,16 @@
             <li class="header-nav-menu-item active">
               <a href="#">Поддержка Drupal</a>
             </li>
-            <li
-              class="header-nav-menu-item dropdown-toggle"
-              role="button"
-              id="Dropdown1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <a href="#">Администрирование</a>
+            <li class="header-nav-menu-item drop" id="Dropdown1">
+              <a
+                href="#"
+                class="dropdown-toggle"
+                role="button"
+                data-bs-hover="dropdown"
+                aria-expanded="false"
+                id="Dropdown1"
+                >Администрирование</a
+              >
               <ul aria-labelledby="Dropdown1" class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Миграция</a></li>
                 <li><a class="dropdown-item" href="#">Бэкапы</a></li>
@@ -36,14 +38,16 @@
               <a href="#">Продвижение</a>
             </li>
             <li class="header-nav-menu-item"><a href="#">Реклама</a></li>
-            <li
-              class="header-nav-menu-item dropdown-toggle"
-              role="button"
-              id="Dropdown2"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <a href="#">О нас</a>
+            <li class="header-nav-menu-item drop" id="Dropdown2">
+              <a
+                href="#"
+                class="dropdown-toggle"
+                role="button"
+                id="Dropdown2"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >О нас</a
+              >
               <ul aria-labelledby="Dropdown2" class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Наша команда</a></li>
                 <li><a class="dropdown-item" href="#">Отдых</a></li>
@@ -60,19 +64,75 @@
           </ul>
         </nav>
       </div>
+      <div class="btn-group dropup">
+        <a
+          role="button"
+          class="nav-btn dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img src="@/assets/img/burger.svg" alt="" />
+        </a>
+        <ul class="dropdown-menu animate slideIn">
+          <li><a class="dropdown-item active" href="#">Поддержка Drupal</a></li>
+          <li>
+            <a
+              href="#"
+              class="dropdown-item dropdown-toggle"
+              role="button"
+              id="Dropdown4"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >Администрирование
+              <span> <img src="@/assets/img/caret.svg" alt=""/></span
+            ></a>
+            <ul aria-labelledby="Dropdown4" class="dropdown-menu show">
+              <li><a class="dropdown-item" href="#">Миграция</a></li>
+              <li><a class="dropdown-item" href="#">Бэкапы</a></li>
+              <li>
+                <a class="dropdown-item" href="#">Аудит Безопасности</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Оптимизация скорости</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Переезд на Https</a>
+              </li>
+            </ul>
+          </li>
+          <li><a class="dropdown-item" href="#">Продвижение</a></li>
+          <li><a class="dropdown-item" href="#">Реклама</a></li>
+          <li>
+            <a
+              href="#"
+              class="dropdown-item dropdown-toggle"
+              role="button"
+              id="Dropdown3"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >О нас <span><img src="@/assets/img/caret.svg" alt=""/></span
+            ></a>
+            <ul aria-labelledby="Dropdown3" class="dropdown-menu show">
+              <li><a class="dropdown-item" href="#">Наша команда</a></li>
+              <li><a class="dropdown-item" href="#">Отдых</a></li>
+              <li>
+                <a class="dropdown-item" href="#">Достижения</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">История</a>
+              </li>
+            </ul>
+          </li>
+          <li><a class="dropdown-item" href="#">Проекты</a></li>
+          <li><a class="dropdown-item" href="#">Контакты</a></li>
+        </ul>
+      </div>
     </div>
   </header>
   <div class="main-info">
     <div class="main-info-video">
-      <video
-        autoplay="autoplay"
-        muted
-        preload="auto"
-        loop
-        playsinline
-        class="fillWidth"
-      >
-        <source src="@/assets/img/video.mp4" />
+      <video autoplay="autoplay" muted preload="auto" loop playsinline>
+        <source src="@/assets/img/video.mp4" type="video/mp4" />
       </video>
     </div>
     <div class="container d-flex justify-content-between">
@@ -91,7 +151,7 @@
         </div>
         <div class="col-md-6">
           <div class="row main-list">
-            <div class="col-md-4 col-sm-4 col-xs-6 main-list-item">
+            <div class="col-md-4 col-sm-4 col-6 main-list-item">
               <div class="main-list-item-border">
                 <div class="main-list-item-title">
                   #1
@@ -102,7 +162,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 main-list-item">
+            <div class="col-md-4 col-sm-4 col-6 main-list-item">
               <div class="main-list-item-border">
                 <div class="main-list-item-title">
                   3+
@@ -112,7 +172,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 main-list-item">
+            <div class="col-md-4 col-sm-4 col-6 main-list-item">
               <div class="main-list-item-border">
                 <div class="main-list-item-title">
                   14
@@ -122,7 +182,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 main-list-item">
+            <div class="col-md-4 col-sm-4 col-6 main-list-item">
               <div class="main-list-item-border">
                 <div class="main-list-item-title">
                   200+
@@ -132,7 +192,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 main-list-item">
+            <div class="col-md-4 col-sm-4 col-6 main-list-item">
               <div class="main-list-item-border">
                 <div class="main-list-item-title">
                   35 000
@@ -142,7 +202,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 main-list-item">
+            <div class="col-md-4 col-sm-4 col-6 main-list-item">
               <div class="main-list-item-border">
                 <div class="main-list-item-title">
                   200+
@@ -162,7 +222,9 @@
       <div class="col-md-6">
         <div class="row">
           <h2 class="util-label">
-            13 лет совершенствуем компетенции в Друпал поддержке!
+            13 лет совершенствуем<br />
+            компетенции в Друпал<br />
+            поддержке!
           </h2>
           <p class="util-low-label">
             Разрабатываем и оптимизируем модули, расширяем функциональность
@@ -172,28 +234,28 @@
       </div>
       <div class="col-md-12 util-list">
         <div class="row d-flex">
-          <div class="col-sm-3 col-xs-6 util-body">
+          <div class="col-sm-3 col-6 util-body">
             <div class="util-bg">
               <img src="@/assets/img/competency-1.svg" class="img-fluid" />
             </div>
             <div class="util-title">
-              Добавление <br />
+              Добавление<br />
               информации на сайт,<br />
               создание новых<br />
               разделов
             </div>
           </div>
-          <div class="col-sm-3 col-xs-6 util-body">
+          <div class="col-sm-3 col-6 util-body">
             <div class="util-bg">
               <img src="@/assets/img/competency-2.svg" class="img-fluid" />
             </div>
             <div class="util-title">
-              Разработка<br />
-              и оптимизация<br />
+              Разработка и<br />
+              оптимизация<br />
               модулей сайта
             </div>
           </div>
-          <div class="col-sm-3 col-xs-6 util-body">
+          <div class="col-sm-3 col-6 util-body">
             <div class="util-bg">
               <img src="@/assets/img/competency-3.svg" class="img-fluid" />
             </div>
@@ -204,7 +266,7 @@
               веб-сервисами
             </div>
           </div>
-          <div class="col-sm-3 col-xs-6 util-body">
+          <div class="col-sm-3 col-6 util-body">
             <div class="util-bg">
               <img src="@/assets/img/competency-4.svg" class="img-fluid" />
             </div>
@@ -214,7 +276,7 @@
               и дизайна
             </div>
           </div>
-          <div class="col-sm-3 col-xs-6 util-body">
+          <div class="col-sm-3 col-6 util-body">
             <div class="util-bg">
               <img src="@/assets/img/competency-5.svg" class="img-fluid" />
             </div>
@@ -224,7 +286,7 @@
               сайтов
             </div>
           </div>
-          <div class="col-sm-3 col-xs-6 util-body">
+          <div class="col-sm-3 col-6 util-body">
             <div class="util-bg">
               <img src="@/assets/img/competency-6.svg" class="img-fluid" />
             </div>
@@ -234,7 +296,7 @@
               Drupal
             </div>
           </div>
-          <div class="col-sm-3 col-xs-6 util-body">
+          <div class="col-sm-3 col-6 util-body">
             <div class="util-bg">
               <img src="@/assets/img/competency-7.svg" class="img-fluid" />
             </div>
@@ -244,7 +306,7 @@
               Drupal-сайтов
             </div>
           </div>
-          <div class="col-sm-3 col-xs-6 util-body">
+          <div class="col-sm-3 col-6 util-body">
             <div class="util-bg">
               <img src="@/assets/img/competency-8.svg" class="img-fluid" />
             </div>
@@ -270,7 +332,7 @@
       </div>
       <div class="col-md-12">
         <div class="row main-support">
-          <div class="col-md-3 col-sm-6 col-xs-12 support-wrapper">
+          <div class="col-md-3 col-sm-6 col-12 support-wrapper">
             <div class="support-body">
               <div class="support-head">
                 <div class="support-num">01.</div>
@@ -294,7 +356,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 support-wrapper">
+          <div class="col-md-3 col-sm-6 col-12 support-wrapper">
             <div class="support-body">
               <div class="support-head">
                 <div class="support-num">02.</div>
@@ -317,7 +379,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 support-wrapper">
+          <div class="col-md-3 col-sm-6 col-12 support-wrapper">
             <div class="support-body">
               <div class="support-head">
                 <div class="support-num">03.</div>
@@ -340,7 +402,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 support-wrapper">
+          <div class="col-md-3 col-sm-6 col-12 support-wrapper">
             <div class="support-body">
               <div class="support-head">
                 <div class="support-num">04.</div>
@@ -364,7 +426,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 support-wrapper">
+          <div class="col-md-3 col-sm-6 col-12 support-wrapper">
             <div class="support-body">
               <div class="support-head">
                 <div class="support-num">05.</div>
@@ -388,7 +450,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 support-wrapper">
+          <div class="col-md-3 col-sm-6 col-12 support-wrapper">
             <div class="support-body">
               <div class="support-head">
                 <div class="support-num">06.</div>
@@ -412,7 +474,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 support-wrapper">
+          <div class="col-md-3 col-sm-6 col-12 support-wrapper">
             <div class="support-body">
               <div class="support-head">
                 <div class="support-num">07.</div>
@@ -434,7 +496,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 support-wrapper">
+          <div class="col-md-3 col-sm-6 col-12 support-wrapper">
             <div class="support-body">
               <div class="support-head">
                 <div class="support-num">08.</div>
@@ -465,7 +527,7 @@
     <div class="container">
       <div class="col-md-12 advantages">
         <div class="row">
-          <div class="col-md-6 offset-md-6 col-xs-12">
+          <div class="col-md-6 offset-md-6 col-12">
             <div class="row">
               <h2 class="advantages-label">
                 Экспертиза в Drupal,<br />
@@ -473,25 +535,25 @@
               </h2>
             </div>
             <div class="row">
-              <div class="col-sm-6 col-xs-12 adv-list">
+              <div class="col-sm-6 col-12 adv-list">
                 <div class="adv-body">
                   Только системный подход – контроль версий, резервирование и
                   тестирование!
                 </div>
               </div>
-              <div class="col-sm-6 col-xs-12 adv-list">
+              <div class="col-sm-6 col-12 adv-list">
                 <div class="adv-body">
                   Только Drupal сайты, не берем на поддержку сайты на других
                   CMS!
                 </div>
               </div>
-              <div class="col-sm-6 col-xs-12 adv-list">
+              <div class="col-sm-6 col-12 adv-list">
                 <div class="adv-body">
                   Участвуем в разработке ядра Drupal и модулей на Drupal.org,
                   разрабатываем <a href="#">свои модули Drupal</a>
                 </div>
               </div>
-              <div class="col-sm-6 col-xs-12 adv-list">
+              <div class="col-sm-6 col-12 adv-list">
                 <div class="adv-body">
                   Поддерживаем сайты на Drupal 5, 6, 7, 8 и 9
                 </div>
@@ -514,7 +576,7 @@
       </div>
       <div class="col-md-12">
         <div class="row tariff-list">
-          <div class="col-md-4 col-xs-12 col-12 tariff-item">
+          <div class="col-md-4 col-12 col-12 tariff-item">
             <div class="tariff-header">
               <div class="tariff-name">
                 Стартовый
@@ -538,7 +600,7 @@
               <a href="#">Свяжитесь с нами!</a>
             </div>
           </div>
-          <div class="col-md-4 col-xs-12 col-12 tariff-item active">
+          <div class="col-md-4 col-12 col-12 tariff-item active">
             <div class="tariff-header">
               <div class="tariff-name">
                 Бизнес
@@ -566,7 +628,7 @@
               <a href="#">Свяжитесь с нами!</a>
             </div>
           </div>
-          <div class="col-md-4 col-xs-12 col-12 tariff-item">
+          <div class="col-md-4 col-12 col-12 tariff-item">
             <div class="tariff-header">
               <div class="tariff-name">
                 VIP
@@ -623,7 +685,7 @@
       </div>
       <div class="col-md-12 additions-list">
         <div class="row justify-content-around">
-          <div class="col-md-3 col-sm-4 col-xs-12 addition-item">
+          <div class="col-md-3 col-sm-4 col-12 addition-item">
             <div class="addition-bg">
               <img src="@/assets/img/competency-20.svg" class="img-fluid" />
             </div>
@@ -634,7 +696,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-4 col-xs-12 addition-item">
+          <div class="col-md-3 col-sm-4 col-12 addition-item">
             <div class="addition-bg">
               <img src="@/assets/img/competency-21.svg" class="img-fluid" />
             </div>
@@ -646,7 +708,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-4 col-xs-12 addition-item">
+          <div class="col-md-3 col-sm-4 col-12 addition-item">
             <div class="addition-bg">
               <img src="@/assets/img/competency-22.svg" class="img-fluid" />
             </div>
@@ -666,7 +728,7 @@
           <h2 class="team-label">Команда</h2>
         </div>
         <div class="row team-list">
-          <div class="col-md-4 col-sm-6 col-xs-6 team-item">
+          <div class="col-md-4 col-sm-6 col-6 team-item">
             <div class="team-img">
               <img src="@/assets/img/IMG_2472_0.jpg" class="img-fluid" />
             </div>
@@ -676,7 +738,7 @@
               <br />заместитель директора
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 col-xs-6 team-item">
+          <div class="col-md-4 col-sm-6 col-6 team-item">
             <div class="team-img">
               <img src="@/assets/img/IMG_2539_0.jpg" class="img-fluid" />
             </div>
@@ -686,7 +748,7 @@
               директор
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 col-xs-6 team-item">
+          <div class="col-md-4 col-sm-6 col-6 team-item">
             <div class="team-img">
               <img src="@/assets/img/IMG_2474_1.jpg" class="img-fluid" />
             </div>
@@ -696,7 +758,7 @@
               поддержки сайтов
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 col-xs-6 team-item">
+          <div class="col-md-4 col-sm-6 col-6 team-item">
             <div class="team-img">
               <img src="@/assets/img/IMG_2522_0.jpg" class="img-fluid" />
             </div>
@@ -708,7 +770,7 @@
               сайтов
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 col-xs-6 team-item">
+          <div class="col-md-4 col-sm-6 col-6 team-item">
             <div class="team-img">
               <img src="@/assets/img/IMG_9971_16.jpg" class="img-fluid" />
             </div>
@@ -736,7 +798,7 @@
           </h2>
         </div>
         <div class="row news-list">
-          <div class="col-md-4 col-xs-12 news-item mini">
+          <div class="col-md-4 col-12 news-item mini">
             <div class="news-mini-header">
               <img src="@/assets/img/image1.png" class="img-fluid" />
             </div>
@@ -757,7 +819,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-8 col-xs-12 news-item full">
+          <div class="col-md-8 col-12 news-item full">
             <div class="news-full-bg">
               <img src="@/assets/img/image2.png" class="img-fluid" />
             </div>
@@ -775,7 +837,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4 col-xs-12 news-item full">
+          <div class="col-md-4 col-12 news-item full">
             <div class="news-full-bg">
               <img src="@/assets/img/image3.png" class="img-fluid" />
             </div>
@@ -793,7 +855,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-xs-12 news-item full">
+          <div class="col-md-4 col-12 news-item full">
             <div class="news-full-bg">
               <img src="@/assets/img/image4.png" class="img-fluid" />
             </div>
@@ -811,7 +873,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-xs-12 news-item mini">
+          <div class="col-md-4 col-12 news-item mini">
             <div class="news-mini-header">
               <img src="@/assets/img/image5.png" class="img-fluid" />
             </div>
@@ -847,194 +909,7 @@
         <div class="container">
           <div class="reviews-container">
             <div class="carousel-wrapper">
-              <div class="reviews-carousel">
-                <div class="review-item">
-                  <div class="review-logo">
-                    <img src="@/assets/img/logo_0.png" class="img-fluid" />
-                  </div>
-                  <div class="review-desc">
-                    <p>
-                      Долгие поиски единственного и неповторимого мастера на
-                      многострадальный сайт www.cielparfum.com, который был
-                      собран крайне некомпетентным программистом и раз в месяц
-                      стабильно грозил погибнуть, привели меня на сайт и, в
-                      итоге, к ребятам из Drupal-coder. И вот уже практически
-                      полгода как не проходит и дня, чтобы я не поудивлялась и
-                      не порадовалась своему везению! Починили все, что не
-                      работало - от поиска до отображения меню. Провели редизайн
-                      - не отходя от желаемого, но со своими существенными и
-                      качественными дополнениями. Осуществили ряд проектов -
-                      конкурсы, тесты и тд. А уж мелких починок и доработок - не
-                      счесть! И главное - все качественно и быстро (не взирая на
-                      не самый "быстрый" тариф). Есть вопросы - замечательный
-                      Алексей всегда подскажет, поддержит, отремонтирует и/или
-                      просто сделает с нуля. Есть задумка для реализации -
-                      замечательный Сергей обсудит и предложит идеальный
-                      вариант. Есть проблема - замечательные Надежда и Роман
-                      починят, поправят, сделают! Ребята доказали, что эта CMS -
-                      мощная и грамотная система управления. Надеюсь, что наше
-                      сотрудничество затянется надолго! Спасибо!!!
-                    </p>
-                  </div>
-                  <div class="review-author">
-                    С уважением, Наталья Сушкова руководитель Отдела
-                    веб-проектов Группы компаний «Си Эль парфюм»
-                  </div>
-                </div>
-                <div class="review-item">
-                  <div class="review-logo">
-                    <img src="@/assets/img/logo_0.png" class="img-fluid" />
-                  </div>
-                  <div class="review-desc">
-                    <p>
-                      Долгие поиски единственного и неповторимого мастера на
-                      многострадальный сайт www.cielparfum.com, который был
-                      собран крайне некомпетентным программистом и раз в месяц
-                      стабильно грозил погибнуть, привели меня на сайт и, в
-                      итоге, к ребятам из Drupal-coder. И вот уже практически
-                      полгода как не проходит и дня, чтобы я не поудивлялась и
-                      не порадовалась своему везению! Починили все, что не
-                      работало - от поиска до отображения меню. Провели редизайн
-                      - не отходя от желаемого, но со своими существенными и
-                    </p>
-                  </div>
-                  <div class="review-author">
-                    С уважением, Наталья Сушкова руководитель Отдела
-                    веб-проектов Группы компаний «Си Эль парфюм»
-                  </div>
-                </div>
-                <div class="review-item">
-                  <div class="review-logo">
-                    <img src="@/assets/img/logo_2.png" class="img-fluid" />
-                  </div>
-                  <div class="review-desc">
-                    <p>
-                      Долгие поиски единственного и неповторимого мастера на
-                      многострадальный сайт www.cielparfum.com, который был
-                      собран крайне некомпетентным программистом и раз в месяц
-                      стабильно грозил погибнуть, привели меня на сайт и, в
-                      итоге, к ребятам из Drupal-coder. И вот уже практически
-                      полгода как не проходит и дня, чтобы я не поудивлялась и
-                      не порадовалась своему везению! Починили все, что не
-                      работало - от поиска до отображения меню. Провели редизайн
-                      - не отходя от желаемого, но со своими существенными и
-                    </p>
-                  </div>
-                  <div class="review-author">
-                    С уважением, Наталья Сушкова руководитель Отдела
-                    веб-проектов Группы компаний «Си Эль парфюм»
-                  </div>
-                </div>
-                <div class="review-item">
-                  <div class="review-logo">
-                    <img src="@/assets/img/logo-estee.png" class="img-fluid" />
-                  </div>
-                  <div class="review-desc">
-                    <p>
-                      Долгие поиски единственного и неповторимого мастера на
-                      многострадальный сайт www.cielparfum.com, который был
-                      собран крайне некомпетентным программистом и раз в месяц
-                      стабильно грозил погибнуть, привели меня на сайт и, в
-                    </p>
-                  </div>
-                  <div class="review-author">
-                    С уважением, Наталья Сушкова руководитель Отдела
-                    веб-проектов Группы компаний «Си Эль парфюм»
-                  </div>
-                </div>
-                <div class="review-item">
-                  <div class="review-logo">
-                    <img src="@/assets/img/logo.png" class="img-fluid" />
-                  </div>
-                  <div class="review-desc">
-                    <p>
-                      Долгие поиски единственного и неповторимого мастера на
-                      многострадальный сайт www.cielparfum.com, который был
-                      собран крайне некомпетентным программистом и раз в месяц
-                      стабильно грозил погибнуть, привели меня на сайт и, в
-                      итоге, к ребятам из Drupal-coder. И вот уже практически
-                      полгода как не проходит и дня, чтобы я не поудивлялась и
-                      не порадовалась своему везению! Починили все, что не
-                      работало - от поиска до отображения меню. Провели редизайн
-                      - не отходя от желаемого, но со своими существенными и
-                    </p>
-                  </div>
-                  <div class="review-author">
-                    С уважением, Наталья Сушкова руководитель Отдела
-                    веб-проектов Группы компаний «Си Эль парфюм»
-                  </div>
-                </div>
-                <div class="review-item">
-                  <div class="review-logo">
-                    <img
-                      src="@/assets/img/lpcma_rus_v4.jpg"
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="review-desc">
-                    <p>
-                      Долгие поиски единственного и неповторимого мастера на
-                      многострадальный сайт www.cielparfum.com, который был
-                      собран крайне некомпетентным программистом и раз в месяц
-                      стабильно грозил погибнуть, привели меня на сайт и, в
-                      итоге, к ребятам из Drupal-coder. И вот уже практически
-                      полгода как не проходит и дня, чтобы я не поудивлялась и
-                      не порадовалась своему везению! Починили все, что не
-                      работало - от поиска до отображения меню. Провели редизайн
-                      - не отходя от желаемого, но со своими существенными и
-                    </p>
-                  </div>
-                  <div class="review-author">
-                    С уважением, Наталья Сушкова руководитель Отдела
-                    веб-проектов Группы компаний «Си Эль парфюм»
-                  </div>
-                </div>
-                <div class="review-item">
-                  <div class="review-logo">
-                    <img
-                      src="@/assets/img/nashagazeta_ch.png"
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="review-desc">
-                    <p>
-                      Долгие поиски единственного и неповторимого мастера на
-                      многострадальный сайт www.cielparfum.com, который был
-                      собран крайне некомпетентным программистом и раз в месяц
-                      стабильно грозил погибнуть, привели меня на сайт и, в
-                      итоге, к ребятам из Drupal-coder. И вот уже практически
-                      полгода как не проходит и дня, чтобы я не поудивлялась и
-                      не порадовалась своему везению! Починили все, что не
-                      работало - от поиска до отображения меню. Провели редизайн
-                      - не отходя от желаемого, но со своими существенными и
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Tempore recusandae voluptatibus officiis.
-                    </p>
-                  </div>
-                  <div class="review-author">
-                    С уважением, Наталья Сушкова руководитель Отдела
-                    веб-проектов Группы компаний «Си Эль парфюм»
-                  </div>
-                </div>
-                <div class="review-item">
-                  <div class="review-logo">
-                    <img src="@/assets/img/logo_0.png" class="img-fluid" />
-                  </div>
-                  <div class="review-desc">
-                    <p>
-                      Долгие поиски единственного и неповторимого мастера на
-                      многострадальный сайт www.cielparfum.com, который был
-                      собран крайне некомпетентным программистом и раз в месяц
-                      стабильно грозил погибнуть, привели меня на сайт и, в
-                      итоге, к ребятам из Drupal-coder.
-                    </p>
-                  </div>
-                  <div class="review-author">
-                    С уважением, Наталья Сушкова руководитель Отдела
-                    веб-проектов Группы компаний «Си Эль парфюм»
-                  </div>
-                </div>
-              </div>
+              <Reviews v-bind:reviewsSliderItems="reviewsSliderItems" />
               <div class="carousel-nav">
                 <div class="reviews-nav">
                   <span class="reviews-counter"></span>
@@ -1060,70 +935,8 @@
       </div>
     </div>
     <div class="workers-carousels">
-      <div class="workers-carousel first">
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item first">
-            <img src="@/assets/img/vtb.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item first">
-            <img src="@/assets/img/kubsu.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item first">
-            <img src="@/assets/img/rosatom.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item first">
-            <img src="@/assets/img/vtb.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item first">
-            <img src="@/assets/img/kubsu.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item first">
-            <img src="@/assets/img/rosatom.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-      </div>
-      <div class="workers-carousel second">
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item second">
-            <img src="@/assets/img/vtb.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item second">
-            <img src="@/assets/img/kubsu.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item second">
-            <img src="@/assets/img/rosatom.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item second">
-            <img src="@/assets/img/vtb.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item second">
-            <img src="@/assets/img/kubsu.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-        <div class="workers-carousel-wrapper">
-          <div class="workers-carousel-item second">
-            <img src="@/assets/img/rosatom.png" alt="" class="img-fluid" />
-          </div>
-        </div>
-      </div>
+      <Carousel v-bind:firstSliderItems="firstSliderItems" />
+      <Carousel v-bind:secondSliderItems="secondSliderItems" />
     </div>
   </div>
   <div class="main-faq">
@@ -1483,7 +1296,7 @@
     <div class="container">
       <div class="col-12">
         <div class="row footer-container">
-          <div class="col-md-6 col-xs-12">
+          <div class="col-md-6 col-12">
             <div class="row">
               <div class="footer-block">
                 <div class="footer-header">
@@ -1507,7 +1320,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-xs-12">
+          <div class="col-md-6 col-12">
             <div class="form-wrapper">
               <form class="footer-form" action="/" method="POST">
                 <div class="mb-1">
@@ -1541,6 +1354,7 @@
                     class="form-control"
                     id="exampleInputPassword1"
                     placeholder="Ваш комментарий"
+                    rows="5"
                   ></textarea>
                 </div>
                 <div class="mb-2 form-check">
@@ -1565,64 +1379,200 @@
           </div>
         </div>
       </div>
+      <div class="col-12 footer-social">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="row">
+              <div class="social-block">
+                <ul class="social-list">
+                  <li class="social-list-item">
+                    <a href="#"
+                      ><img src="@/assets/img/facebook.svg" alt=""
+                    /></a>
+                  </li>
+                  <li class="social-list-item">
+                    <a href="#"><img src="@/assets/img/vk.svg" alt="" /> </a>
+                  </li>
+                  <li class="social-list-item">
+                    <a href="#"
+                      ><img src="@/assets/img/telegram.svg" alt=""
+                    /></a>
+                  </li>
+                  <li class="social-list-item">
+                    <a href="#"><img src="@/assets/img/youtube.svg" alt=""/></a>
+                  </li>
+                </ul>
+                <div class="social-desc">
+                  <p>
+                    Проект ООО «Инитлаб», Краснодар, Россия.<br />
+                    Drupal является зарегистрированной торговой маркой Dries
+                    Buytaert.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 </template>
 <script>
+import Carousel from "./Carousel.vue";
+import Reviews from "./Reviews.vue";
 export default {
-  components: {},
+  components: { Carousel, Reviews },
   data() {
     return {
-      settings: {
-        dots: false,
-        dotsClass: ".reviews-nav",
-        edgeFriction: 0.35,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        arrows: true,
-        slidesToScroll: 1,
-        adaptiveHeight: true,
-        appendArrows: ".reviews-nav",
-        prevArrow:
-          '<button id="prev" type="button" class="slick-prev slick-arrow"></button>',
-        nextArrow:
-          '<button id="next" type="button" class="slick-next slick-arrow"></button>'
-      },
-      workersSettings: {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        swipeToSlide: true,
-        slidesToShow: 5,
-        arrows: false,
-        slidesToScroll: 1,
-        autoplay: false,
-        centerMode: true,
-        centerPadding: "10%",
-        slide: "div",
-        pauseOnHover: false
-      }
+      firstSliderItems: [
+        { id: 1, img: "vtb.png", class: "first" },
+        { id: 2, img: "kubsu.png", class: "first" },
+        { id: 3, img: "rosatom.png", class: "first" },
+        { id: 4, img: "vtb.png", class: "first" },
+        { id: 5, img: "kubsu.png", class: "first" },
+        { id: 6, img: "rosatom.png", class: "first" }
+      ],
+      secondSliderItems: [
+        { id: 1, img: "vtb.png", class: "second" },
+        { id: 2, img: "kubsu.png", class: "second" },
+        { id: 3, img: "rosatom.png", class: "second" },
+        { id: 4, img: "vtb.png", class: "second" },
+        { id: 5, img: "kubsu.png", class: "second" },
+        { id: 6, img: "rosatom.png", class: "second" }
+      ],
+      reviewsSliderItems: [
+        {
+          id: 1,
+          img: "logo_0.png",
+          text: `Долгие поиски единственного и неповторимого мастера на
+                      многострадальный сайт www.cielparfum.com, который был
+                      собран крайне некомпетентным программистом и раз в месяц
+                      стабильно грозил погибнуть, привели меня на сайт и, в
+                      итоге, к ребятам из Drupal-coder. И вот уже практически
+                      полгода как не проходит и дня, чтобы я не поудивлялась и
+                      не порадовалась своему везению! Починили все, что не
+                      работало - от поиска до отображения меню. Провели редизайн
+                      - не отходя от желаемого, но со своими существенными и
+                      качественными дополнениями. Осуществили ряд проектов -
+                      конкурсы, тесты и тд. А уж мелких починок и доработок - не
+                      счесть! И главное - все качественно и быстро (не взирая на
+                      не самый "быстрый" тариф). Есть вопросы - замечательный
+                      Алексей всегда подскажет, поддержит, отремонтирует и/или
+                      просто сделает с нуля. Есть задумка для реализации -
+                      замечательный Сергей обсудит и предложит идеальный
+                      вариант. Есть проблема - замечательные Надежда и Роман
+                      починят, поправят, сделают! Ребята доказали, что эта CMS -
+                      мощная и грамотная система управления. Надеюсь, что наше
+                      сотрудничество затянется надолго! Спасибо!!!`,
+          author: `С уважением, Наталья Сушкова руководитель Отдела
+                    веб-проектов Группы компаний «Си Эль парфюм»`
+        },
+        {
+          id: 2,
+          img: "logo_0.png",
+          text: `Долгие поиски единственного и неповторимого мастера на
+                      многострадальный сайт www.cielparfum.com, который был
+                      собран крайне некомпетентным программистом и раз в месяц
+                      стабильно грозил погибнуть, привели меня на сайт и, в
+                      итоге, к ребятам из Drupal-coder. И вот уже практически
+                      полгода как не проходит и дня, чтобы я не поудивлялась и
+                      не порадовалась своему везению! Починили все, что не
+                      работало - от поиска до отображения меню. Провели редизайн
+                      - не отходя от желаемого, но со своими существенными и`,
+          author: `С уважением, Наталья Сушкова руководитель Отдела
+                    веб-проектов Группы компаний «Си Эль парфюм»`
+        },
+        {
+          id: 3,
+          img: "logo_2.png",
+          text: `Долгие поиски единственного и неповторимого мастера на
+                      многострадальный сайт www.cielparfum.com, который был
+                      собран крайне некомпетентным программистом и раз в месяц
+                      стабильно грозил погибнуть, привели меня на сайт и, в
+                      итоге, к ребятам из Drupal-coder. И вот уже практически
+                      полгода как не проходит и дня, чтобы я не поудивлялась и
+                      не порадовалась своему везению! Починили все, что не
+                      работало - от поиска до отображения меню. Провели редизайн
+                      - не отходя от желаемого, но со своими существенными и`,
+          author: `С уважением, Наталья Сушкова руководитель Отдела
+                    веб-проектов Группы компаний «Си Эль парфюм»`
+        },
+        {
+          id: 4,
+          img: "logo-estee.png",
+          text: `Долгие поиски единственного и неповторимого мастера на
+                      многострадальный сайт www.cielparfum.com, который был
+                      собран крайне некомпетентным программистом и раз в месяц
+                      стабильно грозил погибнуть, привели меня на сайт и, в`,
+          author: `С уважением, Наталья Сушкова руководитель Отдела
+                    веб-проектов Группы компаний «Си Эль парфюм»`
+        },
+        {
+          id: 5,
+          img: "logo.png",
+          text: `Долгие поиски единственного и неповторимого мастера на
+                      многострадальный сайт www.cielparfum.com, который был
+                      собран крайне некомпетентным программистом и раз в месяц
+                      стабильно грозил погибнуть, привели меня на сайт и, в
+                      итоге, к ребятам из Drupal-coder. И вот уже практически
+                      полгода как не проходит и дня, чтобы я не поудивлялась и
+                      не порадовалась своему везению! Починили все, что не
+                      работало - от поиска до отображения меню. Провели редизайн
+                      - не отходя от желаемого, но со своими существенными и`,
+          author: `С уважением, Наталья Сушкова руководитель Отдела
+                    веб-проектов Группы компаний «Си Эль парфюм»`
+        },
+        {
+          id: 6,
+          img: "lpcma_rus_v4.jpg",
+          text: `Долгие поиски единственного и неповторимого мастера на
+                      многострадальный сайт www.cielparfum.com, который был
+                      собран крайне некомпетентным программистом и раз в месяц
+                      стабильно грозил погибнуть, привели меня на сайт и, в
+                      итоге, к ребятам из Drupal-coder. И вот уже практически
+                      полгода как не проходит и дня, чтобы я не поудивлялась и
+                      не порадовалась своему везению! Починили все, что не
+                      работало - от поиска до отображения меню. Провели редизайн
+                      - не отходя от желаемого, но со своими существенными и`,
+          author: `С уважением, Наталья Сушкова руководитель Отдела
+                    веб-проектов Группы компаний «Си Эль парфюм»`
+        },
+        {
+          id: 7,
+          img: "nashagazeta_ch.png",
+          text: `Долгие поиски единственного и неповторимого мастера на
+                      многострадальный сайт www.cielparfum.com, который был
+                      собран крайне некомпетентным программистом и раз в месяц
+                      стабильно грозил погибнуть, привели меня на сайт и, в
+                      итоге, к ребятам из Drupal-coder. И вот уже практически
+                      полгода как не проходит и дня, чтобы я не поудивлялась и
+                      не порадовалась своему везению! Починили все, что не
+                      работало - от поиска до отображения меню. Провели редизайн
+                      - не отходя от желаемого, но со своими существенными и
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Tempore recusandae voluptatibus officiis.`,
+          author: `С уважением, Наталья Сушкова руководитель Отдела
+                    веб-проектов Группы компаний «Си Эль парфюм»`
+        },
+        {
+          id: 8,
+          img: "logo_0.png",
+          text: `Долгие поиски единственного и неповторимого мастера на
+                      многострадальный сайт www.cielparfum.com, который был
+                      собран крайне некомпетентным программистом и раз в месяц
+                      стабильно грозил погибнуть, привели меня на сайт и, в
+                      итоге, к ребятам из Drupal-coder.`,
+          author: `С уважением, Наталья Сушкова руководитель Отдела
+                    веб-проектов Группы компаний «Си Эль парфюм»`
+        }
+      ]
     };
   },
   mounted() {
-    $(".reviews-carousel").on("init", function(event, slick) {
-      $(".reviews-counter").append(
-        `<span class="reviews-counter-active">01</span>/0${slick.slideCount} `
-      );
-    });
-    $(".reviews-carousel").slick(this.settings);
-    $(".reviews-carousel").on("afterChange", function(
-      event,
-      slick,
-      currentSlide,
-      nextSlide
-    ) {
-      $(".reviews-counter-active").html(`0${currentSlide + 1}`);
-    });
-    $(".workers-carousel.first").slick(this.workersSettings);
-    $(".workers-carousel.second").slick(this.workersSettings);
     $(".accordion-item ").on("click", e => {
+      if (e.target.classList.contains("accordion-item")) {
+        return;
+      }
       if (
         e.target.closest(".accordion-item").classList.contains("opened") &&
         !e.target.classList.contains("accordion-body")
@@ -1631,6 +1581,12 @@ export default {
       } else {
         $(".accordion-item.opened").removeClass("opened");
         e.target.closest(".accordion-item").classList.toggle("opened");
+      }
+    });
+    $(".btn-group > a").on("click", e => {
+      if ($(".dropdown-menu.dropdown-menu").is("div")) {
+        // $(".dropdown-menu.dropdown-menu").classList.add("show");
+        $(".dropdown-menu.dropdown-menu").dropdown();
       }
     });
   }

@@ -13,11 +13,11 @@ export default {
     return {};
   },
   mounted() {
-    $(".dropdown-toggle").on("mouseover", function(e) {
+    $(".header-nav-menu-item.drop").on("mouseover", function(e) {
       let id = this.id;
       $(`[aria-labelledby=${id}]`).addClass("show");
     });
-    $(`.dropdown-toggle`).on("mouseout", function(e) {
+    $(`.header-nav-menu-item.drop`).on("mouseout", function(e) {
       let id = this.id;
       $(`[aria-labelledby=${id}]`).removeClass("show");
     });
