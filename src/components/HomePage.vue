@@ -1,4 +1,10 @@
 <template>
+  <!-- <router-view v-slot="{ Component }">
+    <transition name="route" mode="out-in">
+      <component :is="Component"> </component>
+    </transition>
+  </router-view> -->
+  <router-view></router-view>
   <header class="mob-nav">
     <div class="container header">
       <div class="header-logo">
@@ -73,7 +79,7 @@
         >
           <img src="@/assets/img/burger.svg" alt="" />
         </a>
-        <ul class="dropdown-menu animate slideIn">
+        <ul class="dropdown-menu animate">
           <li><a class="dropdown-item active" href="#">Поддержка Drupal</a></li>
           <li>
             <a
@@ -144,7 +150,7 @@
             на CMS Drupal любых версий и запущенности
           </div>
           <div class="main-info-btn">
-            <a href="#main-prices" class="main-btn">
+            <a href="#tariffs" class="main-btn">
               ТАРИФЫ
             </a>
           </div>
@@ -568,7 +574,7 @@
     </div>
   </div>
   <div class="main-tarrifs">
-    <div class="container">
+    <div class="container" id="tariffs">
       <div class="col-md-12">
         <div class="row text-center">
           <h2 class="tariffs-label">Тарифы</h2>
@@ -597,7 +603,7 @@
               </p>
             </div>
             <div class="tariff-btn text-align-center">
-              <a href="#">Свяжитесь с нами!</a>
+              <router-link to="/form">Свяжитесь с нами!</router-link>
             </div>
           </div>
           <div class="col-md-4 col-12 col-12 tariff-item active">
@@ -625,7 +631,7 @@
               </p>
             </div>
             <div class="tariff-btn text-align-center">
-              <a href="#">Свяжитесь с нами!</a>
+              <router-link to="/form">Свяжитесь с нами!</router-link>
             </div>
           </div>
           <div class="col-md-4 col-12 col-12 tariff-item">
@@ -653,7 +659,7 @@
               </p>
             </div>
             <div class="tariff-btn text-align-center">
-              <a href="#">Свяжитесь с нами!</a>
+              <router-link to="/form">Свяжитесь с нами!</router-link>
             </div>
           </div>
         </div>
@@ -1321,61 +1327,7 @@
             </div>
           </div>
           <div class="col-md-6 col-12">
-            <div class="form-wrapper">
-              <form class="footer-form" action="/" method="POST">
-                <div class="mb-1">
-                  <input
-                    type="name"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Ваше имя"
-                  />
-                </div>
-                <div class="mb-1">
-                  <input
-                    type="phone"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Телефон"
-                  />
-                </div>
-                <div class="mb-1">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="E-mail"
-                  />
-                </div>
-                <div class="mb-1">
-                  <textarea
-                    type="phone"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Ваш комментарий"
-                    rows="5"
-                  ></textarea>
-                </div>
-                <div class="mb-2 form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="exampleCheck1"
-                  />
-                  <label class="form-check-label" for="exampleCheck1"
-                    >Отправляя заявку, я даю согласие на
-                    <a href="#"
-                      >обработку своих персональных<br />
-                      данных</a
-                    >.<span>*</span></label
-                  >
-                </div>
-                <button type="submit" class="btn btn-submit btn-lg">
-                  Свяжитесь с нами
-                </button>
-              </form>
-            </div>
+            <Form />
           </div>
         </div>
       </div>
@@ -1420,8 +1372,10 @@
 <script>
 import Carousel from "./Carousel.vue";
 import Reviews from "./Reviews.vue";
+import Form from "./Form.vue";
+var globalID;
 export default {
-  components: { Carousel, Reviews },
+  components: { Carousel, Reviews, Form },
   data() {
     return {
       firstSliderItems: [
@@ -1568,6 +1522,23 @@ export default {
       ]
     };
   },
+  methods: {
+    repeatOften() {
+      let trans = parseInt(
+        $(".modal-body")
+          .css("transform")
+          .split(",")[4]
+      );
+      if (trans < 0) {
+        $(".modal-body").css({
+          transform: `translateX(${trans + 10}px)`
+        });
+      } else {
+        cancelAnimationFrame(globalID);
+      }
+      globalID = requestAnimationFrame(this.repeatOften);
+    }
+  },
   mounted() {
     $(".accordion-item ").on("click", e => {
       if (e.target.classList.contains("accordion-item")) {
@@ -1583,14 +1554,52 @@ export default {
         e.target.closest(".accordion-item").classList.toggle("opened");
       }
     });
-    $(".btn-group > a").on("click", e => {
-      if ($(".dropdown-menu.dropdown-menu").is("div")) {
-        // $(".dropdown-menu.dropdown-menu").classList.add("show");
-        $(".dropdown-menu.dropdown-menu").dropdown();
-      }
+    $(".btn-group").on("show.bs.dropdown", function(e) {
+      $(".dropdown-menu").removeClass("invisible");
+      $(this)
+        .find(".dropdown-menu")
+        .first()
+        .removeClass("slideOut")
+        .stop(true, true)
+        .addClass("slideIn");
     });
+    $(".btn-group").on("hide.bs.dropdown", function(e) {
+      e.preventDefault();
+      $(this)
+        .find(".dropdown-menu")
+        .first()
+        .removeClass("slideIn")
+        .stop(true, true)
+        .addClass("slideOut");
+      setTimeout(() => {
+        $(".nav-btn").removeClass("show");
+        $(".animate").removeClass("show");
+      }, 300);
+    });
+  },
+  watch: {
+    $route(to, from) {
+      if (to.path == "/form") {
+        globalID = requestAnimationFrame(this.repeatOften);
+      } else {
+        cancelAnimationFrame(globalID);
+      }
+    }
   }
 };
 </script>
 
-<style></style>
+<style>
+.route-enter-from {
+  opacity: 0;
+}
+.route-enter-active {
+  transition: all 0.3s ease-out;
+}
+.route-leave-to {
+  opacity: 0;
+}
+.route-leave-active {
+  transition: all 0.3s ease-in;
+}
+</style>

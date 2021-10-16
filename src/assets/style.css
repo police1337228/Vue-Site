@@ -11,23 +11,13 @@
   margin-right: auto;
 }
 .container.header {
-  height: 40px;
+  height: 50px;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
 }
 /* Header */
-/* header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 15;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background: transparent;
-} */
 header {
   width: 100%;
   background: #424242;
@@ -48,9 +38,6 @@ header {
   width: 27px;
   filter: invert(0.5);
 }
-/* .header-logo {
-  display: none;
-} */
 .header-logo img {
   width: 137px;
   height: 19px;
@@ -124,6 +111,9 @@ nav {
 .btn-group.dropup {
   position: static;
 }
+.invisible {
+  opacity: 0;
+}
 .animate {
   animation-duration: 0.3s;
   -webkit-animation-duration: 0.3s;
@@ -135,18 +125,39 @@ nav {
     transform: translateY(1rem);
     opacity: 0;
   }
-
   100% {
     transform: translateY(0rem);
     opacity: 1;
   }
-
   0% {
     transform: translateY(1rem);
     opacity: 0;
   }
 }
-
+@keyframes slideOut {
+  0% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  0% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slideOut {
+  0% {
+    -webkit-transform: translateY(0rem);
+    -webkit-transform: 1;
+  }
+  100% {
+    -webkit-transform: translateY(1rem);
+    -webkit-transform: 0;
+  }
+}
 @-webkit-keyframes slideIn {
   0% {
     -webkit-transform: transform;
@@ -167,6 +178,10 @@ nav {
 .slideIn {
   -webkit-animation-name: slideIn;
   animation-name: slideIn;
+}
+.slideOut {
+  -webkit-animation-name: slideOut;
+  animation-name: slideOut;
 }
 .btn-group .dropdown-menu.show {
   width: 100%;
@@ -1217,6 +1232,7 @@ footer {
   color: #fff;
 }
 .form-wrapper {
+  position: relative;
   margin-left: auto;
   width: 480px;
   max-width: 100%;
@@ -1293,6 +1309,9 @@ footer {
   padding-left: 20px;
   padding-top: 18px;
 }
+.form-control {
+  color: #ccc;
+}
 .btn-submit {
   background: #f14d34;
   border-radius: 5px;
@@ -1361,7 +1380,17 @@ footer {
   color: #ffffff;
   opacity: 0.5;
 }
-
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active до версии 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
 /* MEDIA TAGS */
 
 @media (min-width: 767px) {
@@ -1380,7 +1409,6 @@ footer {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 15;
     padding-top: 30px;
     padding-bottom: 30px;
     background: transparent;
