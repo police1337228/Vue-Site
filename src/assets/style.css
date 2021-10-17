@@ -1005,13 +1005,12 @@ hr {
   background-repeat: no-repeat;
 }
 .carousel-nav {
-  width: 36%;
+  width: 90%;
   display: flex;
 }
 .reviews-nav {
   margin: auto;
   display: flex;
-  margin-left: 35px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -1412,6 +1411,7 @@ footer {
     padding-top: 30px;
     padding-bottom: 30px;
     background: transparent;
+    z-index: 10;
   }
   .btn-group {
     display: none;
@@ -1644,9 +1644,13 @@ footer {
   .review-desc {
     margin-top: 28px;
   }
+  .carousel-nav {
+    width: 36%;
+  }
   .reviews-nav {
     display: block;
     margin: auto;
+    margin-left: 35px;
   }
   .reviews-counter {
     padding-left: 46px;
@@ -1691,11 +1695,14 @@ footer {
     padding-right: 2.75rem;
     padding-left: 2.75rem;
   }
+  footer {
+    background-size: inherit;
+  }
   .footer {
     padding-bottom: 0;
   }
   .footer-header {
-    font-size: 24px;
+    font-size: 42px;
     line-height: 51px;
     text-align: unset;
   }

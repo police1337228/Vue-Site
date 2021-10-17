@@ -1540,6 +1540,15 @@ export default {
     }
   },
   mounted() {
+    $(".header-nav-menu-item.drop").on("mouseover", function(e) {
+      console.log(1);
+      let id = this.id;
+      $(`[aria-labelledby=${id}]`).addClass("show");
+    });
+    $(`.header-nav-menu-item.drop`).on("mouseout", function(e) {
+      let id = this.id;
+      $(`[aria-labelledby=${id}]`).removeClass("show");
+    });
     $(".accordion-item ").on("click", e => {
       if (e.target.classList.contains("accordion-item")) {
         return;

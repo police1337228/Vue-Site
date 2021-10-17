@@ -6,7 +6,7 @@
       method="POST"
       accept-charset="UTF-8"
       id="sendForm"
-      @submit.prevent="sendForm"
+      @submit.prevent="sendFormInfo"
     >
       <Loader v-if="tempInfo.sending" />
       <div class="mb-1">
@@ -17,8 +17,7 @@
           id="inputName"
           aria-describedby="emailHelp"
           placeholder="Ваше имя"
-          @change="setInfo"
-          v-bind:value="this.tempInfo.name"
+          v-model="tempInfo.name"
         />
       </div>
       <div class="mb-1">
@@ -28,8 +27,7 @@
           class="form-control"
           id="inputPhone"
           placeholder="Телефон"
-          @change="setInfo"
-          v-bind:value="this.tempInfo.phone"
+          v-model="tempInfo.phone"
         />
       </div>
       <div class="mb-1">
@@ -39,8 +37,7 @@
           name="email"
           id="inputEmail"
           placeholder="E-mail"
-          @change="setInfo"
-          v-bind:value="this.tempInfo.email"
+          v-model="tempInfo.email"
         />
       </div>
       <div class="mb-1">
@@ -50,8 +47,7 @@
           id="inputText"
           placeholder="Ваш комментарий"
           rows="5"
-          @change="setInfo"
-          v-bind:value="this.tempInfo.text"
+          v-model="tempInfo.text"
         ></textarea>
       </div>
       <div class="mb-2 form-check">
@@ -73,7 +69,7 @@
 
 <script>
 import Loader from "./Loader.vue";
-const URL = "https://formcarry.com/s/HhDnMI-5UW_";
+import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -88,16 +84,8 @@ export default {
   },
   components: { Loader },
   methods: {
-    toLocalStorage() {
-      const name = document.getElementById("inputName");
-      const email = document.getElementById("inputEmail");
-      const phone = document.getElementById("inputPhone");
-      const text = document.getElementById("inputText");
-      localStorage.setItem("name", name.value);
-      localStorage.setItem("email", email.value);
-      localStorage.setItem("phone", phone.value);
-      localStorage.setItem("text", text.value);
-    },
+    ...mapGetters(["getValues"]),
+    ...mapActions(["sendForm"]),
     validateForm() {
       const name = document.getElementById("inputName").value;
       const email = document.getElementById("inputEmail").value;
@@ -111,30 +99,10 @@ export default {
         };
       }
     },
-    async sendForm(e) {
+    async sendFormInfo(e) {
       e.preventDefault();
       if (this.validateForm() == true) {
-        const btn = document.getElementById("form-submit");
-        const form = document.getElementById("sendForm");
-        this.toLocalStorage();
-        btn.disabled = true;
-        this.tempInfo.sending = true;
-        let formData = new FormData(form);
-        let response = await fetch(URL, {
-          method: "POST",
-          headers: {
-            Accept: "application/json"
-          },
-          body: formData
-        });
-        this.tempInfo.sending = false;
-        let result = await response.json();
-        if (response.ok) {
-          alert("Запрос успешно обработан!");
-        } else {
-          alert("Произошла ошибка. Отправьте форму повторно!");
-        }
-        btn.disabled = false;
+        this.sendForm();
       } else {
         let err = this.validateForm();
         alert(err.error);
@@ -142,14 +110,7 @@ export default {
     }
   },
   mounted() {
-    const name = document.getElementById("inputName");
-    const email = document.getElementById("inputEmail");
-    const phone = document.getElementById("inputPhone");
-    const text = document.getElementById("inputText");
-    name.value = localStorage.getItem("name");
-    email.value = localStorage.getItem("email");
-    text.value = localStorage.getItem("text");
-    phone.value = localStorage.getItem("phone");
+    this.tempInfo = this.getValues();
   }
 };
 </script>

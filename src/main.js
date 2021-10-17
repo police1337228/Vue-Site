@@ -11,5 +11,5 @@ import "@/plugins/slick/slick.css";
 import store from "./store";
 const app = createApp(App);
 app.use(Router);
-// app.use(store);
+app.use(store);
 app.mount("#app");
