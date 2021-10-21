@@ -67,11 +67,7 @@ export default {
       .not(".slick-initialized")
       .slick(this.workersSettings);
   },
-  methods: {
-    getClass() {
-      return {};
-    }
-  }
+  methods: {}
 };
 </script>
 

@@ -1,9 +1,4 @@
 <template>
-  <!-- <router-view v-slot="{ Component }">
-    <transition name="route" mode="out-in">
-      <component :is="Component"> </component>
-    </transition>
-  </router-view> -->
   <router-view></router-view>
   <header class="mob-nav">
     <div class="container header">
@@ -191,7 +186,7 @@
             <div class="col-md-4 col-sm-4 col-6 main-list-item">
               <div class="main-list-item-border">
                 <div class="main-list-item-title">
-                  200+
+                  50+
                 </div>
                 <div class="main-list-item-desc">
                   модулей и тем в формате DrupalGive
@@ -201,7 +196,7 @@
             <div class="col-md-4 col-sm-4 col-6 main-list-item">
               <div class="main-list-item-border">
                 <div class="main-list-item-title">
-                  35 000
+                  90 000+
                 </div>
                 <div class="main-list-item-desc">
                   часов поддержки сайтов на Drupal
@@ -211,7 +206,7 @@
             <div class="col-md-4 col-sm-4 col-6 main-list-item">
               <div class="main-list-item-border">
                 <div class="main-list-item-title">
-                  200+
+                  300+
                 </div>
                 <div class="main-list-item-desc">
                   Проектов на поддержке
@@ -1541,7 +1536,6 @@ export default {
   },
   mounted() {
     $(".header-nav-menu-item.drop").on("mouseover", function(e) {
-      console.log(1);
       let id = this.id;
       $(`[aria-labelledby=${id}]`).addClass("show");
     });

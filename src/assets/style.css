@@ -20,7 +20,7 @@
 /* Header */
 header {
   width: 100%;
-  background: #424242;
+  background: black;
   position: fixed;
   bottom: -3px;
   z-index: 100;
@@ -107,6 +107,10 @@ nav {
 .btn-group .dropdown-item:hover {
   color: #f14e3b;
   background-color: black;
+}
+.header-navigation .dropdown-item:hover {
+  background: #d13018;
+  color: #fff;
 }
 .btn-group.dropup {
   position: static;
@@ -1114,7 +1118,7 @@ hr {
 }
 .accordion-num {
   display: block;
-  width: 25px;
+  min-width: 15px;
   text-align: right;
   font-weight: bold;
   font-size: 12px;
@@ -1129,6 +1133,9 @@ hr {
 }
 .accordion-button::after {
   display: none;
+}
+.accordion-item:not(:first-of-type) {
+  border-top: 3px solid transparent;
 }
 .accordion-button {
   padding: 0.5rem 1.25rem;
@@ -1149,7 +1156,7 @@ hr {
   border-radius: 0;
 }
 .accordion-item:not(:first-of-type) {
-  border-top: transparent;
+  border-color: transparent;
   transition: border-color 0.35s;
 }
 .accordion-item.opened:not(:first-of-type) {
@@ -1408,10 +1415,11 @@ footer {
     top: 0;
     left: 0;
     right: 0;
+    bottom: unset;
     padding-top: 30px;
     padding-bottom: 30px;
     background: transparent;
-    z-index: 10;
+    z-index: 15;
   }
   .btn-group {
     display: none;
@@ -1706,9 +1714,11 @@ footer {
     line-height: 51px;
     text-align: unset;
   }
+  .footer-desc {
+    margin-bottom: 142px;
+  }
   .footer-desc br {
     display: block;
-    margin-bottom: 142px;
   }
   .footer-tel {
     font-size: 32px;
